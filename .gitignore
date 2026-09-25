@@ -1,1 +1,16 @@
+.vscode/
 
+.DS_Store
+desktop.ini
+
+.vcd
+AN.DB/
+
+libs/
+work/
+
+*.log
+*.svf
+netlist/
+
+alib-52/
