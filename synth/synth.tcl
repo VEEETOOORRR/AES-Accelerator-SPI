@@ -3,7 +3,7 @@
 # Projeto: Vending Machine (SystemVerilog)
 # ============================================================
 
-set top_module "vending_top"
+set top_module "porta_and"
 
 # 0. DIRETÓRIOS DE SAÍDA
 set reports_dir "./synth/reports"

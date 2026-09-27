@@ -1,0 +1,35 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : porta_and
+Version: X-2025.06-SP2
+Date   : Sun Sep 27 19:56:22 2026
+****************************************
+
+Operating Conditions: tt1p05v25c   Library: saed32rvt_tt1p05v25c
+Wire Load Model Mode: enclosed
+
+  Startpoint: inA (input port)
+  Endpoint: out (output port)
+  Path Group: (none)
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  porta_and          ForQA                 saed32rvt_tt1p05v25c
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  input external delay                     0.00       0.00 r
+  inA (in)                                 0.00       0.00 r
+  U2/Y (AND2X1_RVT)                        0.04       0.04 r
+  out (out)                                0.00       0.04 r
+  data arrival time                                   0.04
+  -----------------------------------------------------------
+  (Path is unconstrained)
+
+
+1
