@@ -14,3 +14,12 @@ work/
 netlist/
 
 alib-52/
+
+verdiLog/
+simv.daidir/
+csrc/
+novas.rc
+novas.conf
+simv
+ucli.key
+work.lib++/
