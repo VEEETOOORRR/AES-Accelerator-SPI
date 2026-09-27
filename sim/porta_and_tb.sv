@@ -1,8 +1,10 @@
+`timescale 1ns/1ps
+
 module porta_and_tb;
 
     logic inA, inB, out;
 
-    porta_and and (
+    porta_and a (
         .inA(inA),
         .inB(inB),
         .out(out)
@@ -13,21 +15,25 @@ module porta_and_tb;
         inA = 0;
         inB = 0;
 
-        #5;
+        #5
 
         inA = 1;
         inB = 0;
 
-        #5;
+        #5
 
         inA = 0;
         inB = 1;
 
-        #5;
+        #5
 
         inA = 1;
         inB = 1;
-    
+
+        #5
+
+        $finish;
+
     end
 
     initial begin
