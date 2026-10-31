@@ -13,8 +13,8 @@ RTL_FILES = $(RTL_DIR)/*.sv
 TB_FILES  = $(TB_DIR)/*.sv
 PKG_FILES = $(RTL_DIR)/pkg/*.sv
 
-# Top do testbench
-TOP = porta_and_tb
+# Top do testbench (padrao alterado para minisoc_aes_sbox_tb)
+TOP = minisoc_aes_top_tb
 NETLIST_FILE = $(NETLIST_DIR)/netlist_top_mapeada.v
 SIMV_POST_SYNTH = simv_post_synth
 LIBRARY_FILE = libs/saed32nm.v
