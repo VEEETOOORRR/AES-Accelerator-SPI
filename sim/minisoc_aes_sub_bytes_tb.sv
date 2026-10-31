@@ -73,7 +73,7 @@ module minisoc_aes_sub_bytes_tb;
         logic mismatch;
         begin
             state_matrix_in = test_in;
-            #5; // Aguarda propagação combinacional
+            #5 // Aguarda propagação combinacional
             test_count++;
             mismatch = (state_matrix_out !== exp_out);
 
@@ -99,9 +99,6 @@ module minisoc_aes_sub_bytes_tb;
     endtask
 
     initial begin
-        // Geração de VCD para inspeção de ondas
-        $dumpfile("minisoc_aes_sub_bytes_tb.vcd");
-        $dumpvars(0, minisoc_aes_sub_bytes_tb);
 
         error_count = 0;
         test_count  = 0;
@@ -186,7 +183,7 @@ module minisoc_aes_sub_bytes_tb;
             $sformat(name, "Vetor aleatorio #%0d", r + 1);
 
             state_matrix_in = rand_in;
-            #5;
+            #5
             test_count++;
             if (state_matrix_out !== exp_out) begin
                 error_count++;

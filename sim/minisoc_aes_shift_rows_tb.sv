@@ -67,7 +67,7 @@ module minisoc_aes_shift_rows_tb;
         logic mismatch;
         begin
             state_in = test_in;
-            #5; // Propagação combinacional
+            #5 // Propagação combinacional
             test_count++;
             mismatch = (state_out !== exp_out);
 
@@ -92,9 +92,6 @@ module minisoc_aes_shift_rows_tb;
     endtask
 
     initial begin
-        // Geração de VCD para inspeção visual
-        $dumpfile("minisoc_aes_shift_rows_tb.vcd");
-        $dumpvars(0, minisoc_aes_shift_rows_tb);
 
         error_count = 0;
         test_count  = 0;
@@ -184,7 +181,7 @@ module minisoc_aes_shift_rows_tb;
             exp_out = ref_shift_rows(rand_in);
 
             state_in = rand_in;
-            #5;
+            #5
             test_count++;
             if (state_out !== exp_out) begin
                 error_count++;

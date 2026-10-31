@@ -39,7 +39,7 @@ VCS_PARAMS = -full64 \
 # 1. Verificação de sintaxe
 # ==========================================
 syntax:
-	vlogan $(VLOGAN_PARAMS) $(PKG_FILES) $(RTL_FILES) $(TB_FILES)
+	vlogan $(VLOGAN_PARAMS) $(RTL_FILES) $(TB_FILES)
 
 # ==========================================
 # 2. Compilação / Elaboração
