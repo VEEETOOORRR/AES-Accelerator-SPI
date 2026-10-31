@@ -20,7 +20,7 @@ SIMV_POST_SYNTH = simv_post_synth
 LIBRARY_FILE = libs/saed32nm.v
 
 # ==========================================
-# 1. Parâmetros de cada ferramenta
+# Parâmetros de cada ferramenta
 # ==========================================
 VLOGAN_PARAMS = -full64 \
 				-sverilog \
@@ -36,18 +36,18 @@ VCS_PARAMS = -full64 \
              +nospecify
 
 # ==========================================
-# 1. Verificação de sintaxe
+# Verificação de sintaxe
 # ==========================================
 syntax:
 	vlogan $(VLOGAN_PARAMS) $(RTL_FILES) $(TB_FILES)
 
 # ==========================================
-# 2. Compilação / Elaboração
+# Compilação / Elaboração
 # ==========================================
 compile: syntax
 	vcs $(VCS_PARAMS) $(TOP)
 # ==========================================
-# 3. Rodar simulação
+# Rodar simulação
 # ==========================================
 run: compile
 	./simv
