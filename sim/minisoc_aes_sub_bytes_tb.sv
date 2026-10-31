@@ -98,7 +98,9 @@ module minisoc_aes_sub_bytes_tb;
         end
     endtask
 
-    initial begin
+    parameter bit STANDALONE = 1'b1;
+
+    task automatic run_tests();
 
         error_count = 0;
         test_count  = 0;
@@ -212,6 +214,10 @@ module minisoc_aes_sub_bytes_tb;
             $display("================================================================");
         end
 
+    endtask
+
+    initial if (STANDALONE) begin
+        run_tests();
         $finish;
     end
 
