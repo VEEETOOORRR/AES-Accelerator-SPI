@@ -16,7 +16,9 @@ netlist/
 alib-52/
 
 verdiLog/
+*.fsdb
 simv.daidir/
+vfastLog/
 csrc/
 novas.rc
 novas.conf
