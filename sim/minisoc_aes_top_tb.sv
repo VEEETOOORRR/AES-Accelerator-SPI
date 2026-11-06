@@ -2,8 +2,8 @@
 
 module minisoc_aes_top_tb;
 
-    minisoc_aes_sub_bytes_tb  #(.STANDALONE(0)) subBytes_tb  ();
-    minisoc_aes_shift_rows_tb #(.STANDALONE(0)) shiftRows_tb ();
+    minisoc_aes_sub_bytes_tb  #(.STANDALONE(0)) subBytes_tb();
+    minisoc_aes_shift_rows_tb #(.STANDALONE(0)) shiftRows_tb();
 
     int total_errors;
 
@@ -21,5 +21,11 @@ module minisoc_aes_top_tb;
         $display("================================================================");
         $finish;
     end
+
+    initial begin
+        $dumpfile("waves.fsdb");
+        $dumpvars(0, minisoc_aes_top_tb);
+    end
+
 
 endmodule
