@@ -1,7 +1,7 @@
 module minisoc_aes_sub_bytes (
-
-    input logic [127:0] state_matrix_in,
-    output logic [127:0] state_matrix_out
+    input  logic         op, // 0 -> Encrypt, 1 -> Decrypt
+    input  logic [127:0] state_in,
+    output logic [127:0] state_out
 
 );
 
@@ -9,8 +9,9 @@ module minisoc_aes_sub_bytes (
     generate
         for (i = 0; i < 16; i++) begin : gen_sbox // Instancia uma sbox para cada posição do estado.
             minisoc_aes_sbox sbox (
-                .data_in (state_matrix_in[127 - i * 8 : 120 - i * 8]),
-                .data_out(state_matrix_out[127 - i * 8 : 120 - i * 8])
+                .op(op),
+                .byte_in (state_in[127 - i * 8 : 120 - i * 8]),
+                .byte_out(state_out[127 - i * 8 : 120 - i * 8])
             );
         end
     endgenerate
