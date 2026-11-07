@@ -3,13 +3,14 @@
 module minisoc_aes_sub_bytes_tb;
 
     // Sinais para conectar ao DUT
-    logic [127:0] state_matrix_in;
-    logic [127:0] state_matrix_out;
+    logic [127:0] state_in;
+    logic [127:0] state_out;
 
     // Instanciação do DUT
     minisoc_aes_sub_bytes dut (
-        .state_matrix_in (state_matrix_in),
-        .state_matrix_out(state_matrix_out)
+        .op(0),
+        .state_in(state_in),
+        .state_out(state_out)
     );
 
     // Tabela de referência da S-box do AES (FIPS 197)
@@ -72,22 +73,22 @@ module minisoc_aes_sub_bytes_tb;
     );
         logic mismatch;
         begin
-            state_matrix_in = test_in;
+            state_in = test_in;
             #5 // Aguarda propagação combinacional
             test_count++;
-            mismatch = (state_matrix_out !== exp_out);
+            mismatch = (state_out !== exp_out);
 
             if (mismatch) begin
                 error_count++;
                 $display("[ERRO] Falha no teste '%s':", test_name);
                 $display("       Entrada:  0x%032X", test_in);
                 $display("       Esperado: 0x%032X", exp_out);
-                $display("       Obtido:   0x%032X", state_matrix_out);
+                $display("       Obtido:   0x%032X", state_out);
                 for (int b = 0; b < 16; b++) begin
-                    if (state_matrix_out[127 - b*8 -: 8] !== exp_out[127 - b*8 -: 8]) begin
+                    if (state_out[127 - b*8 -: 8] !== exp_out[127 - b*8 -: 8]) begin
                         $display("       -> Byte %0d (bits [%0d:%0d]) incorreto: obtido=0x%02X, esperado=0x%02X (in=0x%02X)",
                                  b, 127 - b*8, 120 - b*8,
-                                 state_matrix_out[127 - b*8 -: 8],
+                                 state_out[127 - b*8 -: 8],
                                  exp_out[127 - b*8 -: 8],
                                  test_in[127 - b*8 -: 8]);
                     end
@@ -184,15 +185,15 @@ module minisoc_aes_sub_bytes_tb;
             exp_out = sub_bytes_ref(rand_in);
             $sformat(name, "Vetor aleatorio #%0d", r + 1);
 
-            state_matrix_in = rand_in;
+            state_in = rand_in;
             #5
             test_count++;
-            if (state_matrix_out !== exp_out) begin
+            if (state_out !== exp_out) begin
                 error_count++;
                 $display("[ERRO] Falha no teste aleatorio #%0d!", r + 1);
                 $display("       Entrada:  0x%032X", rand_in);
                 $display("       Esperado: 0x%032X", exp_out);
-                $display("       Obtido:   0x%032X", state_matrix_out);
+                $display("       Obtido:   0x%032X", state_out);
             end
         end
 

@@ -8,7 +8,8 @@ module minisoc_aes_shift_rows_tb;
 
     // Instanciação do DUT
     minisoc_aes_shift_rows dut (
-        .state_in (state_in),
+        .op(0),
+        .state_in(state_in),
         .state_out(state_out)
     );
 

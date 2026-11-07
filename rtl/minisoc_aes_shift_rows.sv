@@ -1,5 +1,5 @@
 module minisoc_aes_shift_rows (
-    input  logic         op, //
+    input  logic         op, // 0 -> Encrypt, 1 -> Decrypt
     input  logic [127:0] state_in,
     output logic [127:0] state_out
 );
